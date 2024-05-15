@@ -6,7 +6,7 @@ import { INIITAL_SEARCH_TERM, QUERY_KEYS } from "@/constants";
 import { MovieService, SearchMovieResponse } from "@/services/MovieService";
 import { Movie } from "@/types/Movie";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Column } from "@/types/DataGrid";
 
 const MovieList = () => {
@@ -18,11 +18,15 @@ const MovieList = () => {
 
   const [page, setPage] = useState(1);
 
-  const { data, isLoading, refetch, isRefetching } =
-    useQuery<SearchMovieResponse>({
-      queryKey: [QUERY_KEYS.MOVIES, page],
-      queryFn: () => MovieService.getMovies({ ...filters, page }),
-    });
+  useEffect(() => {
+    setPage(1);
+  }, [filters]);
+
+  const { data, isLoading, isRefetching } = useQuery<SearchMovieResponse>({
+    queryKey: [QUERY_KEYS.MOVIES, page, filters],
+    queryFn: () => MovieService.getMovies({ ...filters, page }),
+    enabled: filters.s.length > 2,
+  });
 
   const columns: Column<Movie>[] = [
     {
@@ -47,11 +51,7 @@ const MovieList = () => {
 
   return (
     <div className="flex w-full flex-col gap-2">
-      <MovieFilter
-        filters={filters}
-        setFilters={setFilters}
-        handleSearch={refetch}
-      />
+      <MovieFilter filters={filters} setFilters={setFilters} />
       {data && (
         <DataGrid
           data={data?.Search}

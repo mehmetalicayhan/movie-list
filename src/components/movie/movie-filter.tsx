@@ -1,5 +1,4 @@
 import { Search } from "lucide-react";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import SelectBox from "../select-box";
 import YearInput from "../year-input";
@@ -7,11 +6,9 @@ import YearInput from "../year-input";
 const MovieFilter = ({
   filters,
   setFilters,
-  handleSearch,
 }: {
   filters: { s: string; type: string; y: string };
   setFilters: (filters: { s: string; type: string; y: string }) => void;
-  handleSearch: () => void;
 }) => {
   return (
     <div className="flex gap-2">
@@ -46,7 +43,6 @@ const MovieFilter = ({
         onChange={(e) => setFilters({ ...filters, y: e.target.value })}
         className="w-1/4"
       />
-      <Button onClick={handleSearch}>Search</Button>
     </div>
   );
 };
