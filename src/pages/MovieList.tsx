@@ -8,6 +8,7 @@ import { Movie } from "@/types/Movie";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Column } from "@/types/DataGrid";
+import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
   const [filters, setFilters] = useState({
@@ -15,6 +16,8 @@ const MovieList = () => {
     type: "",
     y: "",
   });
+
+  const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
 
@@ -59,6 +62,7 @@ const MovieList = () => {
           isLoading={isLoading || isRefetching}
           columns={columns}
           rowKey="imdbID"
+          onRowClick={(row) => navigate(`/${row.imdbID}`)}
         >
           <DataGridPagination
             page={page}

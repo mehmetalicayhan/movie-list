@@ -1,4 +1,4 @@
-import { Movie } from '@/types/Movie';
+import { Movie, MovieDetail } from '@/types/Movie';
 import axiosInstance from './axios';
 
 interface SearchMovieRequest {
@@ -19,6 +19,11 @@ export interface SearchMovieResponse {
 export class MovieService {
   static async getMovies(request: SearchMovieRequest): Promise<SearchMovieResponse> {
     const response = await axiosInstance.get('', { params: request });
+    return response?.data;
+  }
+
+  static async getMovieById(imdbID?: string): Promise<MovieDetail> {
+    const response = await axiosInstance.get('', { params: { i: imdbID } });
     return response?.data;
   }
 }

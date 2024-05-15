@@ -1,24 +1,26 @@
-import { Movie } from "@/types/Movie";
-import { Card } from "../ui/card";
+import { MovieDetail } from "@/types/Movie";
+import MovieHeader from "./movie-header";
+import MoviePoster from "./movie-poster";
+import MovieContent from "./movie-content";
 
 interface MovieCardProps {
-  movie: Movie;
+  movie: MovieDetail;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
   return (
-    <Card className="flex rounded-xl">
-      <img
-        className="rounded-l-lg"
-        width={100}
-        src={movie.Poster}
-        alt={movie.Title}
-      />
-      <div className="p-4">
-        <h3 className="text-2xl">{movie.Title}</h3>
-        <p>{movie.Year}</p>
+    <div className="flex w-full flex-col rounded-xl md:flex-row">
+      <MoviePoster Poster={movie.Poster} Title={movie.Title} />
+      <div className="flex flex-grow flex-col p-4">
+        <MovieHeader
+          Title={movie.Title}
+          imdbRating={movie.imdbRating}
+          imdbVotes={movie.imdbVotes}
+          Awards={movie.Awards}
+        />
+        <MovieContent movie={movie} />
       </div>
-    </Card>
+    </div>
   );
 };
 
