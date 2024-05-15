@@ -1,10 +1,29 @@
-function App() {
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import MovieList from "./pages/MovieList";
+import MovieDetail from "./pages/MovieDetail";
+
+export default function App() {
   return (
-    <div className="p-16">
-      <h1 className="text-4xl text-center">Hello World</h1>
-      <p className="text-center">This is a paragraph</p>
+    <div>
+      <Routes>
+        <Route path="/" element={<Outlet />}>
+          <Route index element={<MovieList />} />
+          <Route path=":imdbID" element={<MovieDetail />} />
+
+          <Route
+            path="*"
+            element={
+              <div>
+                <h1>404: Not Found</h1>
+                <p>Sorry, the page you're looking for doesn't exist.</p>
+                <p>
+                  <Link to="/">Go back to the home page</Link>
+                </p>
+              </div>
+            }
+          />
+        </Route>
+      </Routes>
     </div>
   );
 }
-
-export default App;

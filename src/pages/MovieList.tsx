@@ -50,7 +50,7 @@ const MovieList = () => {
   ];
 
   return (
-    <div className="flex w-full flex-col gap-2">
+    <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-2 px-2 py-8 sm:px-0 ">
       <MovieFilter filters={filters} setFilters={setFilters} />
       {data && (
         <DataGrid

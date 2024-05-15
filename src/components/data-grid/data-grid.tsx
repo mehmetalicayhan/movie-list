@@ -23,9 +23,9 @@ const DataGrid = <DataType,>({
     return <DataGridSkeleton />;
   }
   return (
-    <Card>
+    <Card className="w-full">
       <CardContent>
-        <Table>
+        <Table className="text-xs sm:text-sm">
           <TableHeader>
             <TableRow>
               {columns.map((column: Column<DataType>) => (

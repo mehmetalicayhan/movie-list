@@ -17,7 +17,7 @@ const DataGridPagination = ({
   const totalPages = Math.ceil(totalResults / 10);
 
   return (
-    <div className="flex w-full items-center justify-between ">
+    <div className="fixed bottom-0 left-0 right-0 flex w-full items-center justify-between bg-secondary p-2 sm:static sm:bg-transparent ">
       <div className="flex items-center space-x-2">
         <Button
           variant="outline"
