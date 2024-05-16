@@ -28,7 +28,7 @@ The app is built using the following technologies:
 git clone https://github.com/mehmetalicayhan/movie-list.git
 ```
 
-2. Before you run the app, you need to get an API key from OMDB API and add it to the .env file in the root directory of the project. 
+1. Before you run the app, you need to get an API key from OMDB API and add it to the .env file in the root directory of the project. There is an .env.example file in the root directory of the project. You can copy your API key to the .env.example file and rename it to .env
 
 #### Example:
 ----------------
