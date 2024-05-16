@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 
-const axiosInstance = axios.create({
+const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   timeout: 1000,
   headers: {
@@ -15,4 +15,4 @@ const axiosInstance = axios.create({
   }
 });
 
-export default axiosInstance;
+export default apiClient;
