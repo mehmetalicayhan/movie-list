@@ -1,4 +1,5 @@
 import MovieCard from "@/components/movie/movie-card";
+import MovieSkeleton from "@/components/movie/movie-skeleton";
 import { QUERY_KEYS } from "@/constants";
 import { MovieService } from "@/services/MovieService";
 import { useQuery } from "@tanstack/react-query";
@@ -13,7 +14,7 @@ const MovieDetail = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <MovieSkeleton />;
   }
   return (
     <div className="mx-auto flex min-h-screen max-w-5xl items-center justify-center">
