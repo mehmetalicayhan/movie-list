@@ -23,7 +23,12 @@ The app is built using the following technologies:
 
 
 ### Running the app locally
-1. Before you run the app, you need to get an API key from OMDB API and add it to the .env file in the root directory of the project. 
+1. Clone the repository
+```
+git clone https://github.com/mehmetalicayhan/movie-list.git
+```
+
+2. Before you run the app, you need to get an API key from OMDB API and add it to the .env file in the root directory of the project. 
 
 #### Example:
 ----------------
@@ -31,7 +36,7 @@ The app is built using the following technologies:
 VITE_API_KEY=your_api_key
 VITE_API_URL=http://www.omdbapi.com/
 ```
-2. Install dependencies
+3. Install dependencies
 ```
 npm install
 ```
