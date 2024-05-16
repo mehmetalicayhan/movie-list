@@ -13,11 +13,9 @@ const MovieDetail = () => {
     queryFn: () => MovieService.getMovieById(imdbID),
   });
 
-  if (isLoading) {
-    return <MovieSkeleton />;
-  }
   return (
     <div className="mx-auto flex min-h-screen max-w-5xl items-center justify-center">
+      {isLoading && <MovieSkeleton />}
       {data && <MovieCard movie={data} />}
     </div>
   );
