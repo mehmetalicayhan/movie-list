@@ -7,17 +7,25 @@ interface MovieHeaderProps {
   imdbRating: string;
   imdbVotes: string;
   Awards: string;
+  Type: string;
 }
 const MovieHeader = ({
   Title,
   imdbRating,
   imdbVotes,
   Awards,
+  Type,
 }: MovieHeaderProps) => {
   return (
     <div className="flex items-center justify-between">
       <h1 className="text-2xl font-bold">{Title}</h1>
+
       <div className="flex gap-2">
+        {!isEmpty(Type) && (
+          <MovieInfoBox>
+            <span>{Type.toLocaleUpperCase()}</span>
+          </MovieInfoBox>
+        )}
         <MovieInfoBox
           icon={
             <StarIcon className="fill-[#F5C518] stroke-[#F5C518]" size={16} />

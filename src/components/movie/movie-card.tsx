@@ -13,6 +13,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       <MoviePoster Poster={movie.Poster} Title={movie.Title} />
       <div className="flex flex-grow flex-col p-4">
         <MovieHeader
+          Type={movie.Type}
           Title={movie.Title}
           imdbRating={movie.imdbRating}
           imdbVotes={movie.imdbVotes}
